@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X-Ray Solutions | Produtos de Raio-X de Alta Qualidade</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    :root {
+      /* Cores principais - com brancos mais intensos */
+      --background: hsl(240, 5%, 6%);
+      --foreground: hsl(60, 5%, 98%); /* Branco mais intenso */
+      --primary: hsl(240, 0%, 100%); /* Branco puro */
+      --primary-foreground: hsl(60, 0%, 0%);
+      --secondary: hsl(240, 4%, 15%);
+      --secondary-foreground: hsl(60, 5%, 95%); /* Branco mais intenso */
+      --accent: hsl(240, 0%, 13%);
+      --accent-foreground: hsl(60, 0%, 100%); /* Branco puro */
+      --muted: hsl(240, 5%, 25%);
+      --muted-foreground: hsl(60, 5%, 95%); /* Branco mais intenso */
+      --card: hsl(240, 4%, 10%);
+      --card-foreground: hsl(60, 5%, 98%); /* Branco mais intenso */
+      --border: hsl(240, 6%, 20%);
+      --input: hsl(240, 6%, 20%);
+      
+      /* Tons de cinza extras - com mais contraste */
+      --gray-lightest: hsl(359, 2%, 98%); /* Quase branco */
+      --gray-lighter: hsl(240, 1%, 90%); /* Cinza muito claro */
+      --gray-medium: hsl(240, 1%, 70%); /* Cinza médio mais claro */
+      --gray-darker: hsl(240, 1%, 42%);
+      --gray-darkest: hsl(240, 2%, 26%);
+      
+      --white: hsl(0, 0%, 100%); /* Branco puro adicional */
+      --near-white: hsl(0, 0%, 96%); /* Quase branco adicional */
+      
+      --transition-time: 0.3s;
+    }
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      color: var(--foreground);
+      background-color: var(--background);
+    }
+    
+    /* Header Styles */
+    .header {
+      background-color: var(--accent);
+      color: var(--white); /* Branco puro para texto */
+      padding: 1.5rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .logo {
+      font-weight: bold;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      color: var(--white); /* Garantindo branco puro */
+    }
+    
+    .logo-x {
+      color: var(--white); /* Branco puro */
+      font-style: italic;
+      font-weight: 800;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Efeito de brilho */
+    }
+    
+    .nav-link {
+      color: var(--near-white); /* Quase branco */
+      transition: all var(--transition-time);
+      font-weight: 500;
+    }
+    
+    .nav-link:hover {
+      color: var(--white); /* Branco puro ao passar o mouse */
+      text-shadow: 0 0 3px rgba(255, 255, 255, 0.3); /* Efeito de brilho */
+    }
+    
+    /* Hero Section */
+    .hero {
+      background-color: var(--secondary);
+      background-image: linear-gradient(to bottom, var(--accent), var(--secondary));
+      padding: 5rem 0;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      color: var(--white); /* Branco puro */
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Efeito de brilho */
+    }
+    
+    .hero .lead {
+      color: var(--gray-lightest); /* Quase branco */
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    /* Products Section */
+    .products-section {
+      padding: 5rem 0;
+      background-color: var(--background);
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-weight: bold;
+      position: relative;
+      color: var(--white); /* Branco puro */
+      font-size: 2.2rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: var(--white); /* Linha branca */
+      margin: 1rem auto;
+    }
+    
+    .product-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all var(--transition-time);
+      height: 100%;
+      background-color: var(--card);
+      color: var(--card-foreground);
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      background-color: var(--white) !important; /* Branco puro ao hover */
+      color: var(--primary-foreground) !important;
+      border: 1px solid var(--white);
+    }
+    
+    .product-card:hover .card-title,
+    .product-card:hover .card-text,
+    .product-card:hover .price {
+      color: var(--primary-foreground) !important;
+    }
+    
+    .product-card:hover .btn-primary {
+      background-color: var(--primary-foreground) !important;
+      color: var(--white) !important;
+      border-color: var(--primary-foreground) !important;
+    }
+    
+    .product-card:hover img {
+      filter: invert(1);
+    }
+    
+    .product-img-container {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--secondary);
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .product-img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      transition: filter var(--transition-time);
+      filter: brightness(1.5); /* Aumentando brilho das imagens */
+    }
+    
+    .card-body {
+      padding: 1.5rem;
+    }
+    
+    .card-title {
+      font-weight: bold;
+      margin-bottom: 0.75rem;
+      transition: color var(--transition-time);
+      color: var(--white); /* Branco puro */
+      font-size: 1.25rem;
+    }
+    
+    .card-text {
+      color: var(--gray-lightest); /* Quase branco */
+      margin-bottom: 1rem;
+      transition: color var(--transition-time);
+    }
+    
+    .price {
+      font-weight: bold;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      transition: color var(--transition-time);
+      color: var(--gray-lightest); /* Quase branco */
+    }
+    
+    .btn-primary {
+      background-color: var(--muted);
+      border-color: var(--muted);
+      color: var(--white); /* Branco puro */
+      transition: all var(--transition-time);
+      border-radius: 4px;
+      padding: 0.5rem 1.5rem;
+      font-weight: 500;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--gray-darker);
+      border-color: var(--gray-darker);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .btn-hero {
+      background-color: var(--white); /* Branco puro */
+      border-color: var(--white);
+      color: var(--background); /* Texto escuro para contraste */
+      transition: all var(--transition-time);
+      border-radius: 4px;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    
+    .btn-hero:hover {
+      background-color: var(--near-white);
+      border-color: var(--near-white);
+      color: var(--background);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Feature section */
+    .features-section {
+      padding: 5rem 0;
+      background-color: var(--secondary);
+      position: relative;
+    }
+    
+    /* Adiciona um brilho de raio-X ao fundo */
+    .features-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    
+    .feature-card {
+      padding: 2.5rem;
+      text-align: center;
+      background-color: var(--card);
+      border-radius: 8px;
+      height: 100%;
+      transition: all var(--transition-time);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      border-color: var(--gray-lighter);
+    }
+    
+    /* Efeito de brilho ao passar o mouse */
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.03) 40%,
+        rgba(255, 255, 255, 0.04) 50%,
+        rgba(255, 255, 255, 0) 60%
+      );
+      transform: rotate(30deg);
+      transition: transform 1.5s;
+    }
+    
+    .feature-card:hover::after {
+      transform: rotate(30deg) translate(10%, 10%);
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--white); /* Branco puro */
+    }
+    
+    .feature-title {
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: var(--white); /* Branco puro */
+      font-size: 1.4rem;
+    }
+    
+    .feature-text {
+      color: var(--gray-lightest); /* Quase branco */
+    }
+    
+    /* Call to action */
+    .cta-section {
+      padding: 5rem 0;
+      background-color: var(--accent);
+      background-image: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Efeito visual de raio-X */
+    .cta-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.15) 0%,
+        transparent 70%
+      );
+      pointer-events: none;
+    }
+    
+    .cta-title {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: var(--white); /* Branco puro */
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-text {
+      color: var(--gray-lightest); /* Quase branco */
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.1rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Divider */
+    .divider {
+      height: 3px;
+      background: linear-gradient(to right, var(--background), var(--white), var(--background)); /* Usando branco puro */
+      margin: 4rem 0;
+      opacity: 0.7;
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--accent);
+      color: var(--gray-lighter); /* Cinza claro */
+      padding: 4rem 0 2rem;
+      margin-top: 0;
+      border-top: 1px solid var(--border);
+    }
+    
+    .footer-title {
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+      color: var(--white); /* Branco puro */
+      font-size: 1.2rem;
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-links a {
+      color: var(--gray-lighter); /* Cinza claro */
+      text-decoration: none;
+      transition: color var(--transition-time);
+    }
+    
+    .footer-links a:hover {
+      color: var(--white); /* Branco puro */
+      text-decoration: none;
+    }
+    
+    .footer-links i {
+      margin-right: 0.5rem;
+      color: var(--gray-medium);
+    }
+    
+    .social-icons {
+      font-size: 1.5rem;
+    }
+    
+    .social-icons a {
+      color: var(--gray-lighter); /* Cinza claro */
+      margin-right: 1.5rem;
+      transition: all var(--transition-time);
+    }
+    
+    .social-icons a:hover {
+      color: var(--white); /* Branco puro */
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--gray-lighter); /* Cinza claro */
+    }
+    
+    /* Botão flutuante */
+    .floating-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--white); /* Branco puro */
+      color: var(--background);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: all var(--transition-time);
+      z-index: 100;
+    }
+    
+    .floating-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Efeito de destaque */
+    .highlight {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--white); /* Branco puro */
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    
+    .highlight:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="logo">
+            <span class="logo-x">X</span>-RAY SOLUTIONS
+          </div>
+          <nav>
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Início</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#products">Produtos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#features">Vantagens</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contato</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1>Soluções Avançadas em Raio-X</h1>
+        <p class="lead">Equipamentos de diagnóstico por imagem com a mais alta tecnologia e precisão para profissionais que exigem excelência em seus resultados</p>
+        <button class="btn btn-hero btn-lg mt-4">Conheça nossos produtos</button>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+      <div class="container">
+        <h2 class="section-title">Nossos Produtos</h2>
+        
+        <div class="row">
+          <div class="col-md-4" v-for="(product, index) in products" :key="index">
+            <div class="product-card">
+              <div class="product-img-container">
+                <img :src="product.image" class="product-img" :alt="product.name">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <p class="price">{{ product.price }}</p>
+                <button class="btn btn-primary">Adicionar ao carrinho</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <div class="divider"></div>
+    
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+      <div class="container">
+        <h2 class="section-title">Por que escolher a X-Ray Solutions?</h2>
+        
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h4 class="feature-title">Qualidade Certificada</h4>
+              <p class="feature-text">Todos os nossos equipamentos passam por rigorosos testes de qualidade e possuem certificação ANVISA.</p>
+            </div>
+          </div>
+          
+          <div class="col-md-4 mb-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-gear"></i>
+              </div>
+              <h4 class="feature-title">Tecnologia Avançada</h4>
+              <p class="feature-text">Utilizamos as mais recentes inovações em radiologia digital para garantir precisão nos diagnósticos.</p>
+            </div>
+          </div>
+          
+          <div class="col-md-4 mb-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-headset"></i>
+              </div>
+              <h4 class="feature-title">Suporte Especializado</h4>
+              <p class="feature-text">Nossa equipe de especialistas está disponível 24/7 para auxiliar em qualquer necessidade técnica.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="cta-title">Pronto para revolucionar seu diagnóstico por imagem?</h2>
+        <p class="cta-text">Entre em contato com um de nossos consultores para uma demonstração personalizada dos nossos equipamentos de raio-X e descubra como podemos atender às necessidades específicas da sua clínica ou hospital.</p>
+        <button class="btn btn-hero btn-lg">Solicitar demonstração</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <h5 class="footer-title">X-Ray Solutions</h5>
+            <p>Fornecendo equipamentos de raio-X de alta qualidade e soluções avançadas de diagnóstico por imagem para profissionais da saúde em todo o Brasil.</p>
+            <div class="social-icons mt-4">
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-twitter"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5 class="footer-title">Links Rápidos</h5>
+            <ul class="footer-links">
+              <li><a href="#" class="highlight">Início</a></li>
+              <li><a href="#products" class="highlight">Produtos</a></li>
+              <li><a href="#features" class="highlight">Vantagens</a></li>
+              <li><a href="#" class="highlight">Sobre Nós</a></li>
+              <li><a href="#contact" class="highlight">Contato</a></li>
+              <li><a href="#" class="highlight">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5 class="footer-title">Contato</h5>
+            <ul class="footer-links">
+              <li><i class="bi bi-geo-alt"></i> Av. Paulista, 1000 - São Paulo</li>
+              <li><i class="bi bi-telephone"></i> (11) 3456-7890</li>
+              <li><i class="bi bi-envelope"></i> contato@xraysolutions.com.br</li>
+              <li><i class="bi bi-clock"></i> Seg-Sex: 9h às 18h</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="copyright">
+          &copy; 2025 X-Ray Solutions. Todos os direitos reservados.
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Botão flutuante -->
+    <a href="#contact" class="floating-button">
+      <i class="bi bi-chat-dots"></i>
+    </a>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+    
+    createApp({
+      data() {
+        return {
+          products: [
+            {
+              name: 'Raio-X Digital Portátil',
+              description: 'Equipamento compacto e portátil para exames radiográficos em qualquer ambiente.',
+              price: 'R$ 69.990,00',
+              image: '/api/placeholder/400/320'
+            },
+            {
+              name: 'Sistema de Raio-X DR',
+              description: 'Sistema digital de radiografia direta com alta resolução e processamento imediato.',
+              price: 'R$ 125.900,00',
+              image: '/api/placeholder/400/320'
+            },
+            {
+              name: 'Detector Flat Panel Wireless',
+              description: 'Detector de raios-X sem fio com tecnologia de ponta para imagens de alta qualidade.',
+              price: 'R$ 87.500,00',
+              image: '/api/placeholder/400/320'
+            },
+            {
+              name: 'Raio-X de Tórax Fixo',
+              description: 'Sistema específico para radiografias torácicas com suporte ajustável.',
+              price: 'R$ 149.800,00',
+              image: '/api/placeholder/400/320'
+            },
+            {
+              name: 'Raio-X Odontológico',
+              description: 'Equipamento exclusivo para radiografias dentárias com função panorâmica.',
+              price: 'R$ 45.600,00',
+              image: '/api/placeholder/400/320'
+            },
+            {
+              name: 'Raio-X Veterinário',
+              description: 'Sistema adaptado para uso em clínicas e hospitais veterinários.',
+              price: 'R$ 78.400,00',
+              image: '/api/placeholder/400/320'
+            },
+            {
+              name: 'Software de Análise de Imagens',
+              description: 'Programa avançado para processamento e análise de imagens radiográficas.',
+              price: 'R$ 12.900,00',
+              image: '/api/placeholder/400/320'
+            },
+            {
+              name: 'Estação de Trabalho Radiológica',
+              description: 'Conjunto completo com monitor de alta resolução para diagnósticos precisos.',
+              price: 'R$ 32.700,00',
+              image: '/api/placeholder/400/320'
+            },
+            {
+              name: 'Kit de Proteção Radiológica',
+              description: 'Conjunto de equipamentos de proteção para pacientes e profissionais.',
+              price: 'R$ 8.950,00',
+              image: '/api/placeholder/400/320'
+            }
+          ]
+        }
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
