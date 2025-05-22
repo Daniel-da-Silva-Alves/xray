@@ -19,7 +19,6 @@ import ProductsSection from './components/ProductsSection.vue'
 import FeaturesSection from './components/FeaturesSection.vue'
 import CallToAction from './components/CallToAction.vue'
 import Footer from './components/Footer.vue'
-import FloatingButton from './components/FloatingButton.vue'
 import { products } from './data/products'
 
 export default {
@@ -31,7 +30,6 @@ export default {
     FeaturesSection,
     CallToAction,
     Footer,
-    FloatingButton
   },
   data() {
     return {

@@ -19,15 +19,13 @@
             <li><a href="#products" class="highlight">Produtos</a></li>
             <li><a href="#features" class="highlight">Vantagens</a></li>
             <li><a href="#" class="highlight">Sobre Nós</a></li>
-            <li><a href="#contact" class="highlight">Contato</a></li>
-            <li><a href="#" class="highlight">FAQ</a></li>
           </ul>
         </div>
         <div class="col-md-4 mb-4">
           <h5 class="footer-title">Contato</h5>
           <ul class="footer-links">
-            <li><i class="bi bi-geo-alt"></i> Av. Paulista, 1000 - São Paulo</li>
-            <li><i class="bi bi-telephone"></i> (11) 3456-7890</li>
+            <li><i class="bi bi-geo-alt"></i> Av. Jurunas, 26 - Manaus</li>
+            <li><i class="bi bi-telephone"></i> (92) 98614-3502</li>
             <li><i class="bi bi-envelope"></i> contato@xraysolutions.com.br</li>
             <li><i class="bi bi-clock"></i> Seg-Sex: 9h às 18h</li>
           </ul>

@@ -1,56 +1,32 @@
 export const products = [
   {
-    name: 'Raio-X Digital Portátil',
-    description: 'Equipamento compacto e portátil para exames radiográficos em qualquer ambiente.',
-    price: 'R$ 69.990,00',
-    image: 'https://images.pexels.com/photos/4226119/pexels-photo-4226119.jpeg'
+    name: 'Avental de chumbo revolution',
+    description: 'A nova linha de aventais de proteção da X-Ray Solutions conta com o material interno KIARMOR, que proporciona 40% mais proteção e é mais leve. Todos os Revolution incluem forro "Cool Wear": o máximo em conforto! Absorvem a umidade por dentro, são impermeáveis ​​por fora, resistentes à abrasão, ao fogo e, por fim, resistentes a bactérias.',
+    image: 'src/assets/products/avental de raiox.png'
   },
   {
-    name: 'Sistema de Raio-X DR',
-    description: 'Sistema digital de radiografia direta com alta resolução e processamento imediato.',
-    price: 'R$ 125.900,00',
-    image: 'https://images.pexels.com/photos/4226264/pexels-photo-4226264.jpeg'
+    name: 'Barreiras Móveis de Raio-X',
+    description: 'Produtos fabricados com estruturas em aço revestido por pintura eletrostática, utilizando soldagem TIG de alta precisão para garantir resistência e durabilidade. Incorporam vidros e cortinas com proteção equivalente a diferentes espessuras de chumbo, muitas vezes combinados com painéis transparentes de materiais resistentes a impactos, assegurando máxima segurança contra radiações.',
+    image: 'src/assets/products/biombo-plumbifero-movel.png'
   },
   {
-    name: 'Detector Flat Panel Wireless',
-    description: 'Detector de raios-X sem fio com tecnologia de ponta para imagens de alta qualidade.',
-    price: 'R$ 87.500,00',
-    image: 'https://images.pexels.com/photos/4226883/pexels-photo-4226883.jpeg'
+    name: 'Almofadas de mesa de Raio-X',
+    description: 'As almofadas de mesa radiolúcidas premium da Techno-Aide são a solução de imagem definitiva. O interior de espuma superior é coberto por seja um vinil reforçado e durável ou nosso exclusivo tecido de conforto elástico de 4 vias. Estas almofadas de mesa excepcionais podem ser usadas em mesas de imagem ou macas para proporcionar maior conforto e estabilidade para os pacientes',
+    image: 'src/assets/products/tablepads.jpg'
   },
   {
-    name: 'Raio-X de Tórax Fixo',
-    description: 'Sistema específico para radiografias torácicas com suporte ajustável.',
-    price: 'R$ 149.800,00',
-    image: 'https://images.pexels.com/photos/4226769/pexels-photo-4226769.jpeg'
+    name: 'Vidros de Chumbo',
+    description: 'Vidros de chumbo são componentes essenciais em ambientes que requerem proteção radiológica, como salas de exames de raio X. Esses vidros possuem uma camada integrada de chumbo que bloqueia eficazmente a passagem da radiação ionizante, protegendo profissionais e pacientes contra exposições desnecessárias.',
+    image: 'src/assets/products/glass.jpg'
   },
   {
-    name: 'Raio-X Odontológico',
-    description: 'Equipamento exclusivo para radiografias dentárias com função panorâmica.',
-    price: 'R$ 45.600,00',
-    image: 'https://images.pexels.com/photos/3779709/pexels-photo-3779709.jpeg'
+    name: 'Luvas de Redução de Radiação Exame e Cirúrgico',
+    description: 'Luvas especializadas projetadas para proteger as mãos contra radiações ionizantes durante exames radiológicos e procedimentos cirúrgicos. Fabricadas com materiais de alta qualidade contendo camadas de chumbo ou compostos equivalentes, garantem redução eficaz da exposição à radiação sem comprometer a destreza e o conforto do usuário.',
+    image: 'src/assets/products/gloves.jpg'
   },
   {
-    name: 'Raio-X Veterinário',
-    description: 'Sistema adaptado para uso em clínicas e hospitais veterinários.',
-    price: 'R$ 78.400,00',
-    image: 'https://images.pexels.com/photos/4226252/pexels-photo-4226252.jpeg'
-  },
-  {
-    name: 'Software de Análise de Imagens',
-    description: 'Programa avançado para processamento e análise de imagens radiográficas.',
-    price: 'R$ 12.900,00',
-    image: 'https://images.pexels.com/photos/4226262/pexels-photo-4226262.jpeg'
-  },
-  {
-    name: 'Estação de Trabalho Radiológica',
-    description: 'Conjunto completo com monitor de alta resolução para diagnósticos precisos.',
-    price: 'R$ 32.700,00',
-    image: 'https://images.pexels.com/photos/4226766/pexels-photo-4226766.jpeg'
-  },
-  {
-    name: 'Kit de Proteção Radiológica',
-    description: 'Conjunto de equipamentos de proteção para pacientes e profissionais.',
-    price: 'R$ 8.950,00',
-    image: 'https://images.pexels.com/photos/4226891/pexels-photo-4226891.jpeg'
+    name: 'Merchant Board para Painéis DR',
+    description: 'Componentes essenciais utilizados em painéis de radiografia digital (DR), o Merchant Board é responsável pela interface eletrônica que gerencia a captura, processamento e transmissão das imagens radiológicas.',
+    image: 'src/assets/products/merchant.jpg'
   }
 ]

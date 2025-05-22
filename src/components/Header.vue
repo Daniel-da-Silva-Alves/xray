@@ -3,7 +3,7 @@
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
         <div class="logo">
-          <span class="logo-x">X</span>-RAY SOLUTIONS
+          <span class="logo-x">X</span>-Ray Solutions
         </div>
         <nav>
           <ul class="nav">
